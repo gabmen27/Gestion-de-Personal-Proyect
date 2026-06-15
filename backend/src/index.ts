@@ -2,31 +2,32 @@
 // Punto de entrada del servidor Express
 // Carga las variables del .env, configura Express y levanta el servidor
 
-import express   from 'express'
-import dotenv    from 'dotenv'
-import sequelize from './db/Connection'
-import rutas     from './Routes/rutas'
-
+import dotenv from "dotenv";
 // Carga las variables del .env antes de cualquier otra cosa
-dotenv.config()
+dotenv.config();
 
-const app  = express()
-const PORT = process.env.PORT || 5000
+import express from "express";
+import sequelize from "./db/Connection";
+import rutas from "./Routes/rutas";
+
+const app = express();
+const PORT = process.env.PORT || 5000;
 
 // Permite que Express lea JSON en el cuerpo de las peticiones
-app.use(express.json())
+app.use(express.json());
 
 // Todas las rutas del API arrancan con /api
-app.use('/api', rutas)
+app.use("/api", rutas);
 
 // Verifica la conexion a MySQL y luego levanta el servidor
-sequelize.authenticate()
+sequelize
+  .authenticate()
   .then(() => {
-    console.log('Conexion a MySQL exitosa')
+    console.log("Conexion a MySQL exitosa");
     app.listen(PORT, () => {
-      console.log(`Servidor corriendo en puerto ${PORT}`)
-    })
+      console.log(`Servidor corriendo en puerto ${PORT}`);
+    });
   })
   .catch((error: Error) => {
-    console.error('Error al conectar a MySQL:', error.message)
-  })
+    console.error("Error al conectar a MySQL:", error.message);
+  });
