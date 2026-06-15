@@ -36,19 +36,41 @@ const calcularDistancia = (
   lon2: number
 ): number => {
 
+<<<<<<< HEAD
   const R   = 6371000
   const rad = (grados: number) => (grados * Math.PI) / 180
 
   const dLat = rad(lat2 - lat1)
   const dLon = rad(lon2 - lon1)
 
+=======
+  // Radio de la Tierra en metros
+  const R   = 6371000
+  // Convertir grados a radianes
+  const rad = (grados: number) => (grados * Math.PI) / 180
+
+  // Diferencias en radianes
+  const dLat = rad(lat2 - lat1)
+  const dLon = rad(lon2 - lon1)
+
+  // Formula Haversine para calcular distancia
+  // que es la Formula Haversine que calcula la distancia real sobre la superficie terrestre 
+  // entre dos puntos dados por sus latitudes y longitudes en grados decimales 
+>>>>>>> feature/nestor
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos(rad(lat1)) * Math.cos(rad(lat2)) *
     Math.sin(dLon / 2) * Math.sin(dLon / 2)
 
+<<<<<<< HEAD
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 
+=======
+    // Distancia en metros
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+
+  // Redondeamos a metros enteros
+>>>>>>> feature/nestor
   return Math.round(R * c)
 }
 

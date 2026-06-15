@@ -1,5 +1,6 @@
 // src/index.ts
 // Punto de entrada del servidor Express
+<<<<<<< HEAD
 // Carga las variables del .env, configura Express y levanta el servidor
 
 import express   from 'express'
@@ -20,6 +21,24 @@ app.use(express.json())
 app.use('/api', rutas)
 
 // Verifica la conexion a MySQL y luego levanta el servidor
+=======
+// require de dotenv debe ser la primera instruccion del archivo
+// para que las variables del .env esten disponibles antes de cualquier import
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('dotenv').config()
+
+import express   from 'express'
+import sequelize from './db/Connection'
+import rutas     from './Routes/rutas'
+
+const app  = express()
+const PORT = process.env.PORT || 5000
+
+app.use(express.json())
+app.use('/api', rutas)
+
+>>>>>>> feature/nestor
 sequelize.authenticate()
   .then(() => {
     console.log('Conexion a MySQL exitosa')

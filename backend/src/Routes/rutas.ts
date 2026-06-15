@@ -9,6 +9,10 @@ import asistenciasRutas  from './asistencias'
 import reportesRutas     from './reportes'
 import alertasRutas      from './alertas'
 import dispositivosRutas from './dispositivos'
+<<<<<<< HEAD
+=======
+import configuracionGpsRutas from './configuracionGps'
+>>>>>>> feature/nestor
 
 const router = Router()
 
@@ -19,5 +23,9 @@ router.use('/asistencia',   asistenciasRutas)
 router.use('/reportes',     reportesRutas)
 router.use('/alertas',      alertasRutas)
 router.use('/dispositivos', dispositivosRutas)
+<<<<<<< HEAD
+=======
+router.use('/configuracion-gps', configuracionGpsRutas)
+>>>>>>> feature/nestor
 
 export default router
