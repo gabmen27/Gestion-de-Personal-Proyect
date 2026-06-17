@@ -10,6 +10,9 @@ import reportesRutas     from './reportes'
 import alertasRutas      from './alertas'
 import dispositivosRutas from './dispositivos'
 
+import configuracionGpsRutas from './configuracionGps'
+
+
 const router = Router()
 
 // Cada prefijo agrupa las rutas de su modulo
@@ -19,5 +22,8 @@ router.use('/asistencia',   asistenciasRutas)
 router.use('/reportes',     reportesRutas)
 router.use('/alertas',      alertasRutas)
 router.use('/dispositivos', dispositivosRutas)
+
+router.use('/configuracion-gps', configuracionGpsRutas)
+
 
 export default router

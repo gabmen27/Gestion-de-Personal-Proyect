@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dependencias
 **/node_modules/
 /.pnp
@@ -16,3 +17,16 @@ yarn-debug.log*
 # Variables de entorno
 **/.env*.local
 **/.env
+=======
+# Backend
+backend/node_modules/
+backend/dist/
+
+# Frontend
+frontend/node_modules/
+frontend/.expo/
+
+# General
+.DS_Store
+*.log
+>>>>>>> feature/nestor

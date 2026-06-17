@@ -4,13 +4,33 @@
 // PUT  /api/dispositivos/:id  — desactiva un dispositivo
 
 import { Router, Response } from 'express'
+<<<<<<< HEAD
 import { Dispositivo } from '../Models/Index'
+=======
+import { Dispositivo, Empleado } from '../Models/Index'
+>>>>>>> feature/nestor
 import verificarToken, { RequestConUsuario } from '../Middlewares/verificarToken'
 
 const router = Router()
 
 router.use(verificarToken)
 
+<<<<<<< HEAD
+=======
+// Lista todos los dispositivos autorizados con su empleado
+router.get('/', async (req: RequestConUsuario, res: Response) => {
+  try {
+    const dispositivos = await Dispositivo.findAll({
+      where: { activo: 1 },
+      include: [{ model: Empleado, attributes: ['nombres', 'apellidos'] }],
+    })
+    return res.status(200).json(dispositivos)
+  } catch (error) {
+    return res.status(500).json({ mensaje: 'Error al obtener dispositivos', error })
+  }
+})
+
+>>>>>>> feature/nestor
 // Registrar un dispositivo autorizado para un empleado
 router.post('/', async (req: RequestConUsuario, res: Response) => {
   const { id_empleado, device_id, plataforma, modelo } = req.body
