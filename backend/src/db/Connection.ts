@@ -13,10 +13,10 @@ const sequelize = new Sequelize(
     port: Number(process.env.DB_PORT),
     dialect: 'mysql',
     logging: false,
-<<<<<<< HEAD
-=======
+
+
     timezone: '-06:00', // Ajuste de zona horaria para Honduras 
->>>>>>> feature/nestor
+
   }
 );
 
